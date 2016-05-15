@@ -8,14 +8,14 @@ class Connector : public Base{
     private:
         const string NXT, AND, XOR;
     public:
-        Connector(string input): data(input), NXT(";"), AND("&&"), XOR("||"){};
+        Connector(string input):NXT(";"), AND("&&"), XOR("||"){data=input;};
         
         //returns true/false based on connector type and whether the parameter is true/false
         bool doNext(bool passed){
-            if(connector.compare(NXT)==1){ //if ;
+            if(data.compare(NXT)==0){ //if ;
                 return true;
             }
-            else if(connector.compare(AND)==1){ //if &&
+            else if(data.compare(AND)==0){ //if &&
                 if(passed==true)
                     return true;
                 else
