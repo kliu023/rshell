@@ -6,7 +6,7 @@
 using namespace std;
 class Arguments : public Base{
     public:
-        Arguments(string input):data(input){};
+        Arguments(string input){data = input;};
         virtual const string getType(){return "args";};
 };
 #endif

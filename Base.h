@@ -7,6 +7,7 @@ class Base{
         string data;
     public:
         Base(){};
+	Base(string input){data = input;};
         virtual const string getType(){return "Base";};
         virtual const string getData(){return data;};
         virtual bool doNext(bool input){return true;};
