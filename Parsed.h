@@ -13,9 +13,7 @@ using namespace std;
 class Parsed{
     private:
         const string tokNext, tokSucc, tokFail; // connectors
-        int index; //index of current word in inputs
-        bool isExec;
-        vector<string> inputs; //stores input into separate words
+        bool isExec; //returns true if addWord should push back exec type
         vector<Base*> cmds;
         void parseWord(const string&); //parses string containing connectors with no spaces
         void addWord(const string input);//pushes given input to exec/arg. if isExec is true, sets it to false
@@ -24,9 +22,10 @@ class Parsed{
     
         
     public:
-        Parsed(): isExec(true), index(0), tokNext(";"), tokSucc("&&"), tokFail("||"){};
-        string getNext(); //returns inputs.at(index), then increments it by 1
+        Parsed(): isExec(true), tokNext(";"), tokSucc("&&"), tokFail("||"){};
+        Base* at(const int i); //returns inputs.at(index), then increments it by 1
         void parseInput(const string&); //parses given string input
+        int size(); //returns size of cmds
        
         
         
