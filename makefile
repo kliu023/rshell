@@ -1,6 +1,6 @@
 C=g++
-CC_FLAGS=-Wall -ansi
-EXEC=calculator
+CC_FLAGS=-Wall -Werror -ansi -pedantic
+EXEC=main
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
 

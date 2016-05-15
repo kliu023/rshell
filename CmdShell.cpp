@@ -21,11 +21,11 @@ bool CmdShell::run(vector<string> cmds)
 {
     int status;
     bool result;
-    char* commands[cmds.size()];
+    char* commands = new char[cmds.size()];
     if(cmds.at(0).compare("exit")==0)
         exit(1);
-    for(int i = 0; i < cmds.size(); ++i){
-        commands[i] = const_cast<char*>(cmds.at(i).c_str());
+    for(unsigned i = 0; i < cmds.size(); ++i){
+        commands[i] = *const_cast<char*>(cmds.at(i).c_str());
     }
     pid_t pid = fork();
     if(pid < 0) //this retunrns false
@@ -36,7 +36,7 @@ bool CmdShell::run(vector<string> cmds)
     else if(pid == 0) //this is the child counter
     {
         
-        if(execvp(commands[0], &commands[0]) < 0)
+        if(execvp(&commands[0], &commands) < 0)
         {
             perror("exec");
             result = false;
@@ -47,14 +47,13 @@ bool CmdShell::run(vector<string> cmds)
         while (wait(&status) != pid);      /* wait for completion  */
         return result;
     }
+    return result;
 }
 
 
 void CmdShell::execute()
 {
     string command;
-    int size;
-    int index;
     int numArgs;
     bool success;
     for(int index = 0; index < execs.size(); ++index){
