@@ -3,11 +3,12 @@
 #include <string>
 using namespace std;
 class Base{
-    private:
-        const string data;
+    protected:
+        string data;
     public:
         Base(){};
         virtual const string getType(){return "Base";};
         virtual const string getData(){return data;};
+        virtual bool doNext(bool input){return true;};
 };
 #endif
