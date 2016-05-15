@@ -13,7 +13,7 @@ using namespace std;
 class Parsed{
     private:
         const string tokNext, tokSucc, tokFail; // connectors
-        bool isExec; //returns true if addWord should push back exec type
+        bool isExec=true; //returns true if addWord should push back exec type
         vector<Base*> cmds;
         void parseWord(const string&); //parses string containing connectors with no spaces
         void addWord(const string input);//pushes given input to exec/arg. if isExec is true, sets it to false
