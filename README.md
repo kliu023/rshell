@@ -29,6 +29,13 @@ There are four test scripts included in the tests directory.
 
 4) commands with comment
 
+## Known Bugs
+
+echoing more than one string will return error
+
+for example, echo hello works but not echo hello world
+
+unable to use cd command, returns error(file or directory not found)
 
 ## License
 
