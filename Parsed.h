@@ -22,7 +22,7 @@ class Parsed{
     
         
     public:
-        Parsed(): isExec(true), tokNext(";"), tokSucc("&&"), tokFail("||"){isExec = true;};
+        Parsed():  tokNext(";"), tokSucc("&&"), tokFail("||"){isExec = true;};
         Base* at(const int i); //returns inputs.at(index), then increments it by 1
         void parseInput(const string&); //parses given string input
         int size(); //returns size of cmds

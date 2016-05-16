@@ -3,8 +3,7 @@
 #include "Parsed.h"
 
 void Parsed::parseInput(const string& input){//passes in each string seperated by spaces through parseWord
-    string temp;
-    int index;
+    string temp; 
     char* next = strtok(const_cast<char*>(input.c_str())," ");
     do{
         temp = next;

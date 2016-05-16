@@ -20,7 +20,7 @@ void CmdShell::getCmd(){
 bool CmdShell::run(vector<string> cmds)
 {
     int status;
-    bool result;
+    bool result=true;
     char* commands = new char[cmds.size()];
     if(cmds.at(0).compare("exit")==0)
         exit(1);
