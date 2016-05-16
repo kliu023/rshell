@@ -1,15 +1,16 @@
-#ifndef CMDSHELL_H
-#define CMDSHELL_H
+#ifndef RSHELL_H
+#define RSHELL_H
 #include <vector>
 #include <string>
 #include "Parsed.h"
 #include "Executable.h"
 #include "Base.h"
 #include "Arguments.h"
+#include "Connector.h"
 
 using namespace std;
 
-class CmdShell{
+class rshell{
     private:
         string input; //user's input 
         vector<string> cmds;

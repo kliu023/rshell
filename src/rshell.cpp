@@ -1,5 +1,5 @@
 #include <string.h>
-#include "CmdShell.h"
+#include "rshell.h"
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -10,13 +10,13 @@
 
 
 
-void CmdShell::getCmd(){
+void rshell::getCmd(){
     cout << "$ ";
     getline(cin,input);
     execs.parseInput(input);
 }
 
-bool CmdShell::run(vector<string> cmds)
+bool rshell::run(vector<string> cmds)
 {
     int status;
     bool result=true;
@@ -50,7 +50,7 @@ bool CmdShell::run(vector<string> cmds)
 }
 
 
-void CmdShell::execute()
+void rshell::execute()
 {
     string command;
     int numArgs;
@@ -86,7 +86,10 @@ void CmdShell::execute()
                 --index;
             }
         }
-   }
-    
+   } 
 }
-   
+int main(){
+    CmdShell cmd;
+    cmd.getCmd();
+    cmd.execute();
+}

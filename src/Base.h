@@ -1,5 +1,6 @@
 #ifndef BASE_H
 #define BASE_H
+
 #include <string>
 using namespace std;
 class Base{
@@ -8,8 +9,8 @@ class Base{
     public:
         Base(){};
 	Base(string input){data = input;};
-        virtual const string getType(){return "Base";};
-        virtual const string getData(){return data;};
-        virtual bool doNext(bool input){return true;};
+        virtual const string getType(){};
+        virtual const string getData(){};
+        virtual bool doNext(bool input){};
 };
 #endif

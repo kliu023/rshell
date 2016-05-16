@@ -4,9 +4,16 @@
 
 void Parsed::parseInput(const string& input){//passes in each string seperated by spaces through parseWord
     string temp; 
+    size_t comm;
     char* next = strtok(const_cast<char*>(input.c_str())," ");
     do{
         temp = next;
+	comm = temp.find(tokComm);
+	if(comm!=std::string::npos){
+	    temp = temp.substr(0,comm);
+	    parseWord(temp);
+	    break;
+	}
         parseWord(temp);
         next = strtok(NULL, " ");
     } while(next != NULL);
