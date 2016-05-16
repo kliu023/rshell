@@ -2,11 +2,10 @@
 #define ARGUMENTS_H
 
 #include "Base.h"
-#include <vector>
 using namespace std;
 class Arguments : public Base{
     public:
-        Arguments(string input){data = input;};
-        virtual const string getType(){return "args";};
+        Arguments(string input);
+        virtual const string getType();
 };
 #endif

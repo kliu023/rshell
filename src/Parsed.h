@@ -1,13 +1,14 @@
 #ifndef PARSED_H
 #define PARSED_H
 
-#include <string>
+#include <string.h>
 #include <vector>
 #include <iostream>
 #include "Base.h"
 #include "Executable.h"
 #include "Arguments.h"
 #include "Connector.h"
+#include <stdio.h>
 
 using namespace std;
 class Parsed{
@@ -22,9 +23,9 @@ class Parsed{
     
         
     public:
-        Parsed():  tokNext(";"), tokSucc("&&"), tokFail("||"), tokComm("#"){isExec = true;};
+        Parsed();
         Base* at(const int i); //returns inputs.at(index), then increments it by 1
-        void parseInput(const string&); //parses given string input
+        void parseInput(const string& input); //parses given string input
         int size(); //returns size of cmds
        
         

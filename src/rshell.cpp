@@ -88,8 +88,9 @@ void rshell::execute()
         }
    } 
 }
-int main(){
-    CmdShell cmd;
-    cmd.getCmd();
-    cmd.execute();
-}
+
+// int main(){
+//     rshell cmd;
+//     cmd.getCmd();
+//     cmd.execute();
+// }

@@ -1,28 +1,13 @@
-C=g++
+CC=g++
 CC_FLAGS=-Wall -Werror -ansi -pedantic
 EXEC=rshell
-SOURCES=$(wildcard *.cpp)
-OBJECTS=$(SOURCES:.cpp=.o)
 
-all: Arguments.o Base.o Connector.o Executable.o Parsed.o rshell.o
-#$(EXEC): $(OBJECTS)
-#	$(CC) $(OBJECTS) -o $(EXEC)
-
-%.o: %.cpp
-	$(CC) -c $(CC_FLAGS) $< -o $@
-
-#%.o: %.h
-#	$(CC) -c $(CC_FLAGS) $< -o $@
-
+all:
+	mkdir -p ./bin
+	$(CC) $(CFLAGS) ./src/main.cpp -o ./src/rshell.cpp -o ./src/Arguments.cpp -o ./src/Base.cpp -o ./src/Connector.cpp -o ./src/Executable.cpp -o ./src/Parsed.cpp -o ./bin/rshell
+	
+rshell:
+	$(CC) $(CFLAGS) ./src/rshell.cpp -o 
+	
 clean:
-	rm -rf *o all
-
-#DEPS = split.h
-
-#all: Lock.o DBC.o Trace.o
-
-#%.o: %.cpp $(DEPS)
-#    $(CC) -o $@ $< $(CFLAGS)
-
-#clean:
-#    rm -rf *o all
+	rm -rf ./bin

@@ -1,6 +1,6 @@
-#include <string.h>
-#include <stdio.h>
 #include "Parsed.h"
+
+Parsed::Parsed():tokNext(";"), tokSucc("&&"), tokFail("||"), tokComm("#"){isExec = true;}
 
 void Parsed::parseInput(const string& input){//passes in each string seperated by spaces through parseWord
     string temp; 

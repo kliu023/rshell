@@ -8,9 +8,9 @@ class Base{
         string data;
     public:
         Base(){};
-	Base(string input){data = input;};
-        virtual const string getType(){};
-        virtual const string getData(){};
-        virtual bool doNext(bool input){};
+	Base(string input);
+        virtual const string getType();
+        virtual const string getData();
+        virtual bool doNext(bool input);
 };
 #endif
