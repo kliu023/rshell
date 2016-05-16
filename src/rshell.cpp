@@ -1,14 +1,8 @@
-#include <string.h>
 #include "rshell.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <stdlib.h>
-#include <algorithm>
-#include <stdio.h>
-#include <errno.h>
 
-
+rshell::rshell(){
+    getCmd();
+}
 
 void rshell::getCmd(){
     cout << "$ ";
@@ -20,12 +14,10 @@ bool rshell::run(vector<string> cmds)
 {
     int status;
     bool result=true;
-    char* commands = new char[cmds.size()];
+    char** commands = new char*[cmds.size()];
     if(cmds.at(0).compare("exit")==0)
         exit(1);
-    for(unsigned i = 0; i < cmds.size(); ++i){
-        commands[i] = *const_cast<char*>(cmds.at(i).c_str());
-    }
+    for(unsigned i = 0; i < cmds.size(); ++i){commands[i] = const_cast<char*>(cmds.at(i).c_str());}
     pid_t pid = fork();
     if(pid < 0) //this retunrns false
     {
@@ -34,8 +26,7 @@ bool rshell::run(vector<string> cmds)
     }
     else if(pid == 0) //this is the child counter
     {
-        
-        if(execvp(&commands[0], &commands) < 0)
+        if(execvp(commands[0], commands) < 0)
         {
             perror("exec");
             result = false;
@@ -89,8 +80,3 @@ void rshell::execute()
    } 
 }
 
-// int main(){
-//     rshell cmd;
-//     cmd.getCmd();
-//     cmd.execute();
-// }
