@@ -33,7 +33,7 @@ There are four test scripts included in the tests directory.
 
 echoing more than one string will return error
 
-for example, echo hello works but not echo hello world
+(for example, echo hello works but not echo hello world)
 
 unable to use cd command, returns error(file or directory not found)
 
