@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
-#include "Parsed.cpp"
 #include "CmdShell.cpp"
 
 using namespace std;
