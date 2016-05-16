@@ -1,5 +1,3 @@
-Rshell is a command line computer program that executes shell commands
-as another user. It can run commands from a custom built exit command and 
-commands from the bin/ directory. Our objective for this assignment is to 
-enable our program to handle single commands and commands that are connected 
-by connectors, such as "&&", "||", ";". 
+Rshell is a command line computer program that executes shell commands as another user. It can run commands from a custom built exit command and commands from the bin/ directory. Our objective for this assignment is to enable our program to handle single commands and commands that are connected by connectors, such as "&&", "||", ";".
+
+In order to do this, we created six classes. First, we created a base class. In the base class, we are able to get the type and data from the command that the user put in.  We will be able to know if the command is an executble, argument or or a connector. Then, g
