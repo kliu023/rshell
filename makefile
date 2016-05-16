@@ -5,11 +5,10 @@ CFLAGS=-Wall -Werror -ansi -pedantic
 all: rshell
 	# $(CC) $(CFLAGS) ./src/main.cpp ./src/rshell.cpp ./src/Arguments.cpp ./src/Base.cpp ./src/Connector.cpp ./src/Executable.cpp ./src/Parsed.cpp -o ./bin/rshell
 	
-rshell:  Base.o Executable.o Arguments.o Connector.o  Parsed.o main.o 
+rshell: mkdir Base.o Executable.o Arguments.o Connector.o  Parsed.o main.o 
 	$(CC) $(CFLAGS) ./bin/Base.o ./bin/Executable.o ./bin/Arguments.o ./bin/Connector.o ./bin/Parsed.o ./bin/main.o -o ./bin/rshell
 	
 main.o: ./src/main.cpp
-	mkdir -p ./bin
 	$(CC) $(CFLAGS) ./src/main.cpp -c -o ./bin/main.o
 	
 rshell.o: ./src/rshell.cpp
@@ -29,6 +28,10 @@ Executable.o: ./src/Executable.cpp
 	
 Base.o: ./src/Base.cpp
 	$(CC) $(CFLAGS) ./src/Base.cpp -c -o ./bin/Base.o
+
+mkdir:
+	mkdir -p ./bin
+	
 
 clean:
 	rm -rf ./bin
