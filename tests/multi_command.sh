@@ -7,3 +7,7 @@ ls -a && echo hello || ls -a && ls -a || ls -a
 ls; ls; 
 echo hello || ls && ls 
 echo hello && ls -a && ls -a || ls -a && ls -a
+ps; ps|| ls && ls
+ps; ps|| ls && ps
+ls -a || ls && ls
+exit
